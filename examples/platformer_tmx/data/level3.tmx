@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="67">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="75">
  <tileset firstgid="1" name="Tiles" tilewidth="32" tileheight="32">
   <image source="../images/tiles.png" width="96" height="32"/>
  </tileset>
  <tileset firstgid="4" name="sprites" tilewidth="30" tileheight="30">
   <image source="../images/sprites.png" width="150" height="30"/>
+  <terraintypes>
+   <terrain name="H" tile="-1"/>
+  </terraintypes>
   <tile id="0">
    <properties>
     <property name="Class" value="Player"/>
@@ -31,7 +34,7 @@
    </properties>
   </tile>
  </tileset>
- <imagelayer name="Background" visible="0">
+ <imagelayer name="Background">
   <image source="../images/background-wall.png"/>
   <properties>
    <property name="speedX" value="0.5"/>
@@ -848,7 +851,7 @@
    <tile gid="2"/>
    <tile gid="1"/>
    <tile gid="1"/>
-   <tile gid="1"/>
+   <tile gid="0"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
@@ -10046,71 +10049,71 @@
   </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object id="1" gid="4" x="105" y="341"/>
-  <object id="2" gid="5" x="583" y="350"/>
-  <object id="3" gid="5" x="783" y="352"/>
-  <object id="4" gid="5" x="1022" y="672"/>
-  <object id="5" gid="5" x="798" y="700">
+  <object id="2" x="583" y="350"/>
+  <object id="3" x="783" y="352"/>
+  <object id="4" x="1022" y="672"/>
+  <object id="5" x="798" y="700">
    <properties>
     <property name="angle" value="90"/>
     <property name="scale" value="2"/>
    </properties>
   </object>
-  <object id="6" name="BigEnemy" gid="5" x="509" y="703">
+  <object id="6" name="BigEnemy" x="509" y="703">
    <properties>
     <property name="scale" value="2"/>
    </properties>
   </object>
-  <object id="7" gid="5" x="305" y="1182"/>
-  <object id="8" gid="5" x="498" y="1181"/>
-  <object id="9" gid="5" x="742" y="1182"/>
-  <object id="10" gid="5" x="909" y="1186"/>
-  <object id="11" gid="5" x="1046" y="1189"/>
-  <object id="12" gid="5" x="869" y="1369"/>
-  <object id="13" gid="5" x="1073" y="1371"/>
-  <object id="14" gid="6" x="2171" y="739"/>
-  <object id="15" gid="5" x="2257" y="763"/>
-  <object id="16" gid="5" x="2301" y="753"/>
-  <object id="17" gid="5" x="2363" y="759"/>
-  <object id="18" gid="5" x="2461" y="765"/>
-  <object id="19" gid="5" x="2579" y="773"/>
-  <object id="20" gid="5" x="2699" y="755"/>
-  <object id="21" gid="5" x="2759" y="753"/>
-  <object id="22" gid="5" x="2653" y="753"/>
-  <object id="23" gid="5" x="2529" y="753"/>
-  <object id="24" gid="5" x="2419" y="749"/>
-  <object id="25" gid="5" x="2307" y="747"/>
-  <object id="26" gid="5" x="2867" y="1459"/>
-  <object id="27" gid="5" x="2821" y="1475"/>
-  <object id="28" gid="5" x="2763" y="1473"/>
-  <object id="29" gid="5" x="2707" y="1465"/>
-  <object id="30" gid="5" x="2637" y="1463"/>
-  <object id="31" gid="5" x="2585" y="1425"/>
-  <object id="32" gid="5" x="2541" y="1401"/>
-  <object id="33" gid="5" x="2557" y="1813"/>
-  <object id="34" gid="5" x="2537" y="1813"/>
-  <object id="35" gid="5" x="2135" y="1717"/>
-  <object id="36" gid="5" x="2179" y="1723"/>
-  <object id="37" gid="5" x="2243" y="1749"/>
-  <object id="38" gid="5" x="2287" y="1751"/>
-  <object id="39" gid="5" x="2327" y="1757"/>
-  <object id="40" gid="5" x="1527" y="1697"/>
-  <object id="41" gid="5" x="1497" y="1691"/>
-  <object id="42" gid="5" x="1471" y="1693"/>
-  <object id="43" gid="5" x="1141" y="1817"/>
-  <object id="44" gid="5" x="1067" y="1821"/>
-  <object id="45" gid="5" x="973" y="1817"/>
-  <object id="46" gid="5" x="905" y="1815"/>
-  <object id="47" gid="5" x="857" y="1793"/>
-  <object id="48" gid="5" x="153" y="1883"/>
-  <object id="49" gid="5" x="189" y="1877"/>
-  <object id="50" gid="5" x="241" y="1887"/>
-  <object id="51" gid="5" x="261" y="1877"/>
-  <object id="52" gid="5" x="485" y="1847"/>
-  <object id="53" gid="5" x="641" y="1847"/>
-  <object id="54" gid="5" x="751" y="1847"/>
-  <object id="55" gid="5" x="699" y="1845"/>
-  <object id="56" gid="5" x="561" y="1843"/>
-  <object id="66" gid="8" x="303" y="351"/>
+  <object id="7" x="305" y="1182"/>
+  <object id="8" x="498" y="1181"/>
+  <object id="9" x="742" y="1182"/>
+  <object id="10" x="909" y="1186"/>
+  <object id="11" x="1046" y="1189"/>
+  <object id="12" x="869" y="1369"/>
+  <object id="13" x="1073" y="1371"/>
+  <object id="14" x="2171" y="739"/>
+  <object id="15" x="2257" y="763"/>
+  <object id="16" x="2301" y="753"/>
+  <object id="17" x="2363" y="759"/>
+  <object id="18" x="2461" y="765"/>
+  <object id="19" x="2579" y="773"/>
+  <object id="20" x="2699" y="755"/>
+  <object id="21" x="2759" y="753"/>
+  <object id="22" x="2653" y="753"/>
+  <object id="23" x="2529" y="753"/>
+  <object id="24" x="2419" y="749"/>
+  <object id="25" x="2307" y="747"/>
+  <object id="26" x="2867" y="1459"/>
+  <object id="27" x="2821" y="1475"/>
+  <object id="28" x="2763" y="1473"/>
+  <object id="29" x="2707" y="1465"/>
+  <object id="30" x="2637" y="1463"/>
+  <object id="31" x="2585" y="1425"/>
+  <object id="32" x="2541" y="1401"/>
+  <object id="33" x="2557" y="1813"/>
+  <object id="34" x="2537" y="1813"/>
+  <object id="35" x="2135" y="1717"/>
+  <object id="36" x="2179" y="1723"/>
+  <object id="37" x="2243" y="1749"/>
+  <object id="38" x="2287" y="1751"/>
+  <object id="39" x="2327" y="1757"/>
+  <object id="40" x="1527" y="1697"/>
+  <object id="41" x="1497" y="1691"/>
+  <object id="42" x="1471" y="1693"/>
+  <object id="43" x="1141" y="1817"/>
+  <object id="44" x="1067" y="1821"/>
+  <object id="45" x="973" y="1817"/>
+  <object id="46" x="905" y="1815"/>
+  <object id="47" x="857" y="1793"/>
+  <object id="48" x="153" y="1883"/>
+  <object id="49" x="189" y="1877"/>
+  <object id="50" x="241" y="1887"/>
+  <object id="51" x="261" y="1877"/>
+  <object id="52" x="485" y="1847"/>
+  <object id="53" x="641" y="1847"/>
+  <object id="54" x="751" y="1847"/>
+  <object id="55" x="699" y="1845"/>
+  <object id="56" x="561" y="1843"/>
+  <object id="57" x="435" y="326"/>
+  <object id="59" gid="4" x="167" y="289"/>
  </objectgroup>
 </map>

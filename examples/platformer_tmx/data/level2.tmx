@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="67">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="58">
  <tileset firstgid="1" name="Tiles" tilewidth="32" tileheight="32">
   <image source="../images/tiles.png" width="96" height="32"/>
  </tileset>
  <tileset firstgid="4" name="sprites" tilewidth="30" tileheight="30">
-  <image source="../images/sprites.png" width="150" height="30"/>
+  <image source="../images/sprites.png" width="30" height="90"/>
   <tile id="0">
    <properties>
     <property name="Class" value="Player"/>
@@ -20,18 +20,8 @@
     <property name="Class" value="Tower"/>
    </properties>
   </tile>
-  <tile id="3">
-   <properties>
-    <property name="Class" value="Missile"/>
-   </properties>
-  </tile>
-  <tile id="4">
-   <properties>
-    <property name="Class" value="PowerUp"/>
-   </properties>
-  </tile>
  </tileset>
- <imagelayer name="Background" visible="0">
+ <imagelayer name="Background">
   <image source="../images/background-wall.png"/>
   <properties>
    <property name="speedX" value="0.5"/>
@@ -10111,6 +10101,6 @@
   <object id="54" gid="5" x="751" y="1847"/>
   <object id="55" gid="5" x="699" y="1845"/>
   <object id="56" gid="5" x="561" y="1843"/>
-  <object id="66" gid="8" x="303" y="351"/>
+  <object id="57" gid="5" x="428" y="349"/>
  </objectgroup>
 </map>

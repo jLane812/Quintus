@@ -19,6 +19,28 @@ var Q = window.Q = Quintus()
         // And turn on default input controls and touch input (for UI)
         .controls().touch()
 
+Q.component("missile", {
+  added: function() {
+    this.entity.on("step", "handleFiring");
+  },
+  extend: {
+    handleFiring: function(dt) {
+      if (this.p.canFire && Q.inputs.fire) {
+        if (this.p.direction === 'right') {
+          console.log("Direction right");
+          var missile = Q.stage().insert(new Q.Missile({
+            x: this.p.x+5, y: this.p.y
+          }));
+        }
+        this.p.canFire = false;
+      } else if (Q.inputs.fire) {
+        console.log("You already fired the missle. Nice try.");
+      }
+    }
+  }
+});
+
+
 // ## Player Sprite
 // The very basic player sprite, this is just a normal sprite
 // using the player sprite sheet with default controls added to it.
@@ -34,7 +56,7 @@ Q.Sprite.extend("Player",{
       speed: 300
     });
 
-    this.add('2d, platformerControls');
+    this.add('2d, platformerControls, missile');
 
     this.on("hit.sprite",function(collision) {
 
@@ -46,6 +68,37 @@ Q.Sprite.extend("Player",{
   }
 });
 
+Q.Sprite.extend("Missile", {
+  init: function(p) {
+    console.log("creating Missile");
+    this._super(p,{
+      sheet: "missile",
+      angle: 0,
+      speed : 30,
+    });
+    //this.on('hit','erase');
+  },
+  step: function(dt){
+    //this.stage.collide(this);
+    console.log("Missile step")
+    if(this.p.angle === 0){
+      this.p.x += this.p.speed * dt;
+    }
+    else if(this.p.angle === 180){
+      this.p.x -= this.p.speed * dt;
+    }
+    //if(this.p.y > Q.el.height || this.p.y < 0){
+    //  this.destroy();
+    //}
+  }, 
+  sensor: function() {
+    //this.destroy();
+  },
+  erase: function(collision) {
+    //this.debind();
+    //this.destroy();
+  }
+});
 
 // ## Tower Sprite
 // Sprites can be simple, the Tower sprite just sets a custom sprite sheet
@@ -55,11 +108,28 @@ Q.Sprite.extend("Tower", {
   }
 });
 
+// ## Power Up
+Q.Sprite.extend("PowerUp", {
+  init: function(p) {
+    this._super(p, { sheet: 'powerUp'});
+
+    this.add('2d');
+
+    this.on("bump.top,bump.left,bump.right,bump.bottom",function(collision) {
+      if(collision.obj.isA("Player")) {
+        collision.obj.p.canFire = true; 
+        console.log(collision.obj.p);
+        this.destroy();
+      }
+    });
+  }
+});
+
 // ## Enemy Sprite
 // Create the Enemy class to add in some baddies
 Q.Sprite.extend("Enemy",{
   init: function(p) {
-    this._super(p, { sheet: 'enemy', vx: 100, visibleOnly: true });
+    this._super(p, { sheet: 'enemy', vx: 100, visibleOnly: true, type: Q.SPRITE_ENEMY });
 
     this.add('2d, aiBounce');
 
@@ -79,8 +149,8 @@ Q.Sprite.extend("Enemy",{
   }
 });
 
-// ## Level1 scene
-// Create a new scene called level 1
+// ## level1 scene
+// Create a new scene called level1
 Q.scene("level1",function(stage) {
   Q.stageTMX("level1.tmx",stage);
   stage.add("viewport").follow(Q("Player").first());
@@ -117,8 +187,8 @@ Q.loadTMX("level1.tmx, sprites.json", function() {
 // The are lots of things to try out here.
 // 
 // 1. Modify level.json to change the level around and add in some more enemies.
-// 2. Add in a second level by creating a level2.json and a level2 scene that gets
-//    loaded after level 1 is complete.
+// 2. Add in a second level by creating a level1.json and a level1 scene that gets
+//    loaded after level1 is complete.
 // 3. Add in a title screen
 // 4. Add in a hud and points for jumping on enemies.
 // 5. Add in a `Repeater` behind the TileLayer to create a paralax scrolling effect.

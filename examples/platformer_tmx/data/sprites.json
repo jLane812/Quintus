@@ -1,1 +1,16 @@
-{"player":{"sx":0,"sy":0,"cols":1,"tilew":30,"tileh":30,"frames":1},"enemy":{"sx":0,"sy":33,"cols":1,"tilew":30,"tileh":24,"frames":1},"tower":{"sx":0,"sy":60,"cols":1,"tilew":30,"tileh":30,"frames":1}}
+{
+	"player":
+		{"sx":0,"sy":0,"cols":1,"tilew":30,"tileh":30,"frames":1},
+
+	"enemy":
+		{"sx":30,"sy":0,"cols":1,"tilew":30,"tileh":30,"frames":1},
+
+	"tower":
+		{"sx":60,"sy":0,"cols":1,"tilew":30,"tileh":30,"frames":1},
+
+	"missile":
+		{"sx":90,"sy":0,"cols":1,"tilew":30,"tileh":30,"frames":1},
+
+	"powerUp":
+		{"sx":120,"sy":0,"cols":1,"tilew":30,"tileh":30,"frames":1}
+}
